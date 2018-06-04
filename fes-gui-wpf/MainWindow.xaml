@@ -4,29 +4,20 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:fes_gui_wpf"
+        xmlns:viewModels="clr-namespace:fes_gui_wpf.ViewModel"
+        xmlns:views="clr-namespace:fes_gui_wpf.View"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
         
-        <StackPanel Grid.Column="0" Orientation="Vertical">
-            <TextBlock Text="Name"/>
-            <TextBlock Text="Vorname"/>
-            <TextBlock Text="Strasse"/>
-            <TextBlock Text="Ort"/>
-            <TextBlock Text="PLZ"/>
-        </StackPanel>
 
-        <StackPanel Grid.Column="1" Orientation="Vertical">
-            <TextBox></TextBox>
-            <TextBox Text="{Binding Vorname}"/>
-            <TextBox Text="{Binding Strasse}"/>
-            <TextBox Text="{Binding Ort}"/>
-            <TextBox Text="{Binding PLZ}"/>
-        </StackPanel>
+    <Window.DataContext>
+        <viewModels:MainViewModel/>
+    </Window.DataContext>
+
+    <Window.Resources>
         
-    </Grid>
+    </Window.Resources>
+
+    <views:Form DataContext="{Binding FormViewModel}" Visibility="{Binding Visibility}"/>
+
 </Window>
