@@ -9,9 +9,24 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
-            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.Column="0" 
+        
+        <StackPanel Grid.Column="0" Orientation="Vertical">
+            <TextBlock Text="Name"/>
+            <TextBlock Text="Vorname"/>
+            <TextBlock Text="Strasse"/>
+            <TextBlock Text="Ort"/>
+            <TextBlock Text="PLZ"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Orientation="Vertical">
+            <TextBox></TextBox>
+            <TextBox Text="{Binding Vorname}"/>
+            <TextBox Text="{Binding Strasse}"/>
+            <TextBox Text="{Binding Ort}"/>
+            <TextBox Text="{Binding PLZ}"/>
+        </StackPanel>
         
     </Grid>
 </Window>
