@@ -10,7 +10,7 @@ namespace fes_gui_wpf.ViewModel
         private readonly MainViewModel _mainViewModel;
 
         public string Visibility
-        {
+        {       
             get
             {
                 return _visibility;

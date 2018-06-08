@@ -18,6 +18,16 @@
         
     </Window.Resources>
 
-    <views:Form Margin="20" DataContext="{Binding FormViewModel}" Visibility="{Binding Visibility}"/>
+    <StackPanel>
+
+        <views:Form Margin="20" DataContext="{Binding FormViewModel}" Visibility="{Binding Visibility}"/>
+
+        <!-- ## TODO: In eine Seperate View verschieben-->
+        <Grid>
+            <DataGrid ItemsSource="{Binding Personen}">
+                
+            </DataGrid>
+        </Grid>
+    </StackPanel>
 
 </Window>

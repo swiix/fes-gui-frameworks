@@ -6,7 +6,7 @@ namespace fes_gui_wpf.ViewModel
     public class MainViewModel
     {
         public FormViewModel FormViewModel { get; set; }
-        public ObservableCollection<Person> Personen;
+        public ObservableCollection<Person> Personen { get; set; }
 
         public MainViewModel()
         {
