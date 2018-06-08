@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace fes_gui_wpf.Model
+﻿namespace fes_gui_wpf.Model
 {
     public class Adresse
     {
@@ -41,6 +35,11 @@ namespace fes_gui_wpf.Model
             {
                 return strasse;
             }
+        }
+
+        public override string ToString()
+        {
+            return strasse + ", " + plz + ", " + ort;
         }
     }
 }

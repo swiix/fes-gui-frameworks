@@ -1,18 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace fes_gui_wpf.Model
+﻿namespace fes_gui_wpf.Model
 {
-    class Person
+    public class Person
     {
         private string vorname;
         private string nachname;
         private Adresse adresse;
 
-        public Person(string vorname ,string nachname ,Adresse adresse)
+        public Person(string vorname, string nachname, Adresse adresse)
         {
             this.vorname = vorname;
             this.nachname = nachname;
@@ -49,6 +43,12 @@ namespace fes_gui_wpf.Model
             {
                 return adresse;
             }
+        }
+
+        public override string ToString()
+        {
+            return "Person: " + Name + "\n" +
+                "Adresse: " + adresse;
         }
     }
 }

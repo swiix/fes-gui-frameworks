@@ -32,7 +32,7 @@
                 <TextBox Text="{Binding Vorname}"/>
                 <TextBox Text="{Binding Strasse}"/>
                 <TextBox Text="{Binding Ort}"/>
-                <TextBox Text="{Binding PLZ}"/>
+                <TextBox Text="{Binding Plz}"/>
                 <Button Content="Speichern" Command="{Binding SpeichernCommand}"/>
             </StackPanel>
 
