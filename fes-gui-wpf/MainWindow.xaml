@@ -18,6 +18,6 @@
         
     </Window.Resources>
 
-    <views:Form DataContext="{Binding FormViewModel}" Visibility="{Binding Visibility}"/>
+    <views:Form Margin="20" DataContext="{Binding FormViewModel}" Visibility="{Binding Visibility}"/>
 
 </Window>

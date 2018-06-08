@@ -10,7 +10,20 @@ namespace fes_gui_wpf.ViewModel
 {
     public class FormViewModel
     {
-        public string Visibility { get; set; }
+        private string _visibility;
+
+        public string Visibility
+        {
+            get
+            {
+                return _visibility;
+            }
+            set
+            {
+                _visibility = value;
+            }
+        }
+
         public DelegateCommand SpeichernCommand { get; set; }
 
         public FormViewModel(MainViewModel mainViewModel)

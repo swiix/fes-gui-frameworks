@@ -54,6 +54,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\Adresse.cs" />
+    <Compile Include="Model\Person.cs" />
     <Compile Include="Utils\DelegateCommand.cs" />
     <Compile Include="Utils\Notifier.cs" />
     <Compile Include="ViewModel\FormViewModel.cs" />
@@ -102,8 +104,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Model\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
