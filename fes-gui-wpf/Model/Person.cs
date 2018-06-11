@@ -2,53 +2,32 @@
 {
     public class Person
     {
-        private string vorname;
-        private string nachname;
-        private Adresse adresse;
-
         public Person(string vorname, string nachname, Adresse adresse)
         {
-            this.vorname = vorname;
-            this.nachname = nachname;
-            this.adresse = adresse;
+            Vorname = vorname;
+            Nachname = nachname;
+            Adresse = adresse;
         }
 
         public string Name
         {
             get
             {
-                return vorname + " " + nachname;
+                return Vorname + " " + Nachname;
             }
         }
 
-        public string Vorname
-        {
-            get
-            {
-                return vorname;
-            }
-        }
+        public string Vorname { get; private set; }
 
-        public string Nachname
-        {
-            get
-            {
-                return nachname;
-            }
-        }
+        public string Nachname { get; private set; }
 
-        public Adresse Adresse
-        {
-            get
-            {
-                return adresse;
-            }
-        }
+        public Adresse Adresse { get; private set; }
+
 
         public override string ToString()
         {
             return "Person: " + Name + "\n" +
-                "Adresse: " + adresse;
+                "Adresse: " + Adresse;
         }
     }
 }

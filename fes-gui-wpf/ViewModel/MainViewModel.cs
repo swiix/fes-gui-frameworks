@@ -14,7 +14,7 @@ namespace fes_gui_wpf.ViewModel
         public ObservableCollection<Person> Personen { get; set; }
 
         // "@" bedeut das special Character nicht beachtet werden z.B \n \r \b \\
-        public string DateiName = @"Personen.csv";
+        public string DateiPfad = @"Personen.csv";
 
         public MainViewModel()
         {
@@ -25,14 +25,18 @@ namespace fes_gui_wpf.ViewModel
             Personen = new ObservableCollection<Person>();
 
             // Lese aus Datei -> Lade Personen-Daten, wenn Datei verfügbar
-            leseDatei();
+            leseDatei(DateiPfad);
         }
 
-        private void leseDatei()
+        /// <summary>
+        /// liest die mitgegebene Datei ein und aktuallisiert die Personen Liste
+        /// </summary>
+        /// <param name="dateiPfad"></param>
+        private void leseDatei(string dateiPfad)
         {
-            if(File.Exists(DateiName))
+            if(File.Exists(dateiPfad))
             {
-                StreamReader streamReader = new StreamReader(DateiName);
+                StreamReader streamReader = new StreamReader(dateiPfad);
                 
                 // Datei Zeile für zeile auslesen, Daten als Objekt anlegen und der PersonenListe hinzufügen.
                 while(streamReader.Peek() >= 0)

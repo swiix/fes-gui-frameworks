@@ -24,5 +24,6 @@ namespace fes_gui_wpf
         {
             InitializeComponent();
         }
+
     }
 }

@@ -7,7 +7,7 @@ using System;
 
 namespace fes_gui_wpf.ViewModel
 {
-    public class FormViewModel
+    public class FormViewModel : Notifier
     {
         private readonly MainViewModel _mainViewModel;
 
@@ -38,29 +38,62 @@ namespace fes_gui_wpf.ViewModel
         /// </summary>
         private void Speichern()
         {
-            ObservableCollection<Person> personen = _mainViewModel.Personen;
-            // TODO? Validierung?
-            // Auslesen aus der Form, Person der Liste hinzufügen
+            // Validierung, weil wir finden, dass sonst ein Eintrag keinen Sinn macht und kein Anwendungszweck besitzt.
+            if(String.IsNullOrWhiteSpace(Vorname) || String.IsNullOrWhiteSpace(Name))
+            {
+                MessageBox.Show("Vorname und Nachname sind Pflichtfelder!");
+                return;
+            }
 
-            // neue Person erstellen
+            ObservableCollection<Person> personen = _mainViewModel.Personen;
+            // Auslesen aus der Form, Person der Liste hinzufügen
             Person neuePerson = new Person(Vorname, Name, new Adresse(Plz, Ort, Strasse));
             // Person zur Liste hinzufügen
             personen.Add(neuePerson);
-            fuegeZurDateiHinzu(neuePerson);
+
+            fuegeZurDateiHinzu(neuePerson, _mainViewModel.DateiPfad);
+
+            FormReset();
+
         }
 
-        // Person in Datei schreiben
-        private void fuegeZurDateiHinzu(Person neuePerson)
+        /// <summary>
+        /// Setzt alle Form Einträge auf Default zurück und gibt dem GUI bescheid(OnPropertyChanged)
+        /// </summary>
+        private void FormReset()
         {
-            var fileWriter = new StreamWriter(_mainViewModel.DateiName ,true); //Append = true;
-            fileWriter.WriteLine(getCsvFormat(neuePerson));
+            Name = "";
+            OnPropertyChanged("Name");
+            Vorname = "";
+            OnPropertyChanged("Vorname");
+            Strasse = "";
+            OnPropertyChanged("Strasse");
+            Ort = "";
+            OnPropertyChanged("Ort");
+            Plz = "";
+            OnPropertyChanged("Plz");
+        }
+
+        /// <summary>
+        /// Fügt Daten eines Personen Objekts in eine Datei( siehe _mainViewModel.DateiName )
+        /// </summary>
+        /// <param name="Person">Personen Objekt</param>
+        private void fuegeZurDateiHinzu(Person person, string dateiPfad)
+        {
+            var fileWriter = new StreamWriter(dateiPfad, true); //Append = true;
+            fileWriter.WriteLine(getCsvFormat(person));
             fileWriter.Close();
         }
 
-        private string getCsvFormat(Person person)
+        /// <summary>
+        /// Convertiert das Personen Objekt als String mit einem CSV Typischen Seperator
+        /// </summary>
+        /// <param name="person">Personen Objekt</param>
+        /// <param name="seperator">Trennstrich für Output. Default ist ";" CSV Typisch</param>
+        /// <returns></returns>
+        private string getCsvFormat(Person person, string seperator = ";")
         {
             string output = "";
-            string sperator = ";";
 
             string[] data =  { person.Vorname,
                                 person.Nachname,
@@ -70,7 +103,7 @@ namespace fes_gui_wpf.ViewModel
             // String wird zusammengeführt aus Array data
             foreach(string d in data)
             {
-                output += d + sperator;
+                output += d + seperator;
             }
 
             return output;
