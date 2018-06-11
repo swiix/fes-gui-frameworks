@@ -8,14 +8,14 @@
         xmlns:views="clr-namespace:fes_gui_wpf.View"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-        
+
 
     <Window.DataContext>
         <viewModels:MainViewModel/>
     </Window.DataContext>
 
     <Window.Resources>
-        
+
     </Window.Resources>
 
     <StackPanel>
@@ -24,10 +24,19 @@
 
         <!-- ## TODO: In eine Seperate View verschieben-->
         <Grid>
-            <DataGrid ItemsSource="{Binding Personen}">
-                
+            <DataGrid ItemsSource="{Binding Personen}" AutoGenerateColumns="False">
+                <!--Recherche Quelle für Custom GridNames: 
+                http://www.wpf-tutorial.com/datagrid-control/custom-columns/-->
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Vorname" Binding="{Binding Vorname}" />
+                    <DataGridTextColumn Header="Nachname" Binding="{Binding Nachname}" />
+                    <DataGridTextColumn Header="Straße" Binding="{Binding Adresse.Strasse}" />
+                    <DataGridTextColumn Header="PLZ" Binding="{Binding Adresse.Plz}" />
+                    <DataGridTextColumn Header="Ort" Binding="{Binding Adresse.Ort}" />
+                </DataGrid.Columns>
             </DataGrid>
         </Grid>
+        <WebBrowser Height="100"/>
     </StackPanel>
 
 </Window>
