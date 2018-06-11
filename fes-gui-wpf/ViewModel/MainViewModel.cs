@@ -13,7 +13,8 @@ namespace fes_gui_wpf.ViewModel
         public FormViewModel FormViewModel { get; set; }
         public ObservableCollection<Person> Personen { get; set; }
 
-        public string DateiName = @"Personen.csv"; // "@" bedeut das special Character nicht beachtet werden z.B \n \r \b \\
+        // "@" bedeut das special Character nicht beachtet werden z.B \n \r \b \\
+        public string DateiName = @"Personen.csv";
 
         public MainViewModel()
         {
@@ -24,14 +25,21 @@ namespace fes_gui_wpf.ViewModel
             Personen = new ObservableCollection<Person>();
 
             // Lese aus Datei -> Lade Personen-Daten, wenn Datei verfügbar
+            leseDatei();
+        }
+
+        private void leseDatei()
+        {
             if(File.Exists(DateiName))
             {
                 StreamReader streamReader = new StreamReader(DateiName);
+                
                 // Datei Zeile für zeile auslesen, Daten als Objekt anlegen und der PersonenListe hinzufügen.
                 while(streamReader.Peek() >= 0)
                 {
                     char sperator = ';';
-                    string[] personData = streamReader.ReadLine().Split(sperator); // einlesen der Zeile und dekodierung zu einem String Array
+                    // einlesen der Zeile und dekodierung zu einem String Array
+                    string[] personData = streamReader.ReadLine().Split(sperator);
 
                     string vorname = personData[0];
                     string nachname = personData[1];
@@ -40,17 +48,9 @@ namespace fes_gui_wpf.ViewModel
                     string plz = personData[4];
 
                     Personen.Add(new Person(vorname, nachname, new Adresse(plz, ort, strasse)));
-
-                    streamReader.Peek();
                 }
+                streamReader.Close();
             }
-            // Debug Liste
-            Personen.Add(new Person("Carl", "Reinecken",
-                new Adresse("123", "Carlsberg", "Heinekesttr. 3")));
-            Personen.Add(new Person("Dawid", "Paliczuk",
-                new Adresse("65343", "Eltville", "Taunusstraße 30")));
-
         }
-
     }
 }
