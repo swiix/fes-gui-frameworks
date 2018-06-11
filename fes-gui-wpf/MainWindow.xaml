@@ -7,7 +7,7 @@
         xmlns:viewModels="clr-namespace:fes_gui_wpf.ViewModel"
         xmlns:views="clr-namespace:fes_gui_wpf.View"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Bekkaoui User Interface - Personenverzeichnis" Height="450" Width="800">
 
 
     <Window.DataContext>
@@ -27,12 +27,12 @@
             <DataGrid ItemsSource="{Binding Personen}" AutoGenerateColumns="False">
                 <!--Recherche Quelle für Custom GridNames: 
                 http://www.wpf-tutorial.com/datagrid-control/custom-columns/-->
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="Vorname" Binding="{Binding Vorname}" />
-                    <DataGridTextColumn Header="Nachname" Binding="{Binding Nachname}" />
-                    <DataGridTextColumn Header="Straße" Binding="{Binding Adresse.Strasse}" />
-                    <DataGridTextColumn Header="PLZ" Binding="{Binding Adresse.Plz}" />
-                    <DataGridTextColumn Header="Ort" Binding="{Binding Adresse.Ort}" />
+                <DataGrid.Columns >
+                    <DataGridTextColumn Header="Vorname" Binding="{Binding Vorname, Mode=OneWay}" /> <!--Mode = OneWay, Damit die Daten durch ein doppelklick nicht geändert werden. (Extra funktion von DataGrid)-->
+                    <DataGridTextColumn Header="Nachname" Binding="{Binding Nachname, Mode=OneWay}" />
+                    <DataGridTextColumn Header="Straße" Binding="{Binding Adresse.Strasse, Mode=OneWay}" />
+                    <DataGridTextColumn Header="PLZ" Binding="{Binding Adresse.Plz, Mode=OneWay}" />
+                    <DataGridTextColumn Header="Ort" Binding="{Binding Adresse.Ort, Mode=OneWay}" />
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>
