@@ -52,7 +52,7 @@ namespace fes_gui_wpf.ViewModel
         // Person in Datei schreiben
         private void fuegeZurDateiHinzu(Person neuePerson)
         {
-            var fileWriter = new StreamWriter("Personen.csv" ,true); //Append = true;
+            var fileWriter = new StreamWriter(_mainViewModel.DateiName ,true); //Append = true;
             fileWriter.WriteLine(getCsvFormat(neuePerson));
             fileWriter.Close();
         }

@@ -1,5 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="TODO TableView">
+    <Position X="8.525" Y="5.858" Height="0.75" Width="1.7" />
+  </Comment>
   <Class Name="fes_gui_wpf.Model.Person">
     <Position X="2.75" Y="3.5" Width="1.5" />
     <TypeIdentifier>
@@ -11,25 +14,34 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="fes_gui_wpf.Model.Adresse">
-    <Position X="5.75" Y="4.5" Width="1.5" />
+    <Position X="6" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAEAAAAAAAAAAEAAAAAAAAACAAAABgAAAAQAAAABA=</HashCode>
       <FileName>Model\Adresse.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="fes_gui_wpf.ViewModel.FormViewModel">
-    <Position X="8.25" Y="1.75" Width="1.5" />
+    <Position X="9.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AEACEAABAAAAQABAAAAAAARAAAAAAABgAAAAAAIAAAA=</HashCode>
+      <HashCode>AAACEAABAAAAQABAAAAAABRAAAAgAABgAAAAAAAAAAA=</HashCode>
       <FileName>ViewModel\FormViewModel.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_mainViewModel" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="fes_gui_wpf.ViewModel.MainViewModel">
-    <Position X="5.75" Y="1.75" Width="1.5" />
+    <Position X="4.25" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAACAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ViewModel\MainViewModel.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="FormViewModel" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Personen" />
+    </ShowAsCollectionAssociation>
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
