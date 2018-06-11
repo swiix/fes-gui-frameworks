@@ -2,6 +2,9 @@
 using fes_gui_wpf.Model;
 using fes_gui_wpf.Utils;
 using System.Collections.ObjectModel;
+using System.IO;
+using System;
+
 namespace fes_gui_wpf.ViewModel
 {
     public class FormViewModel
@@ -38,8 +41,39 @@ namespace fes_gui_wpf.ViewModel
             ObservableCollection<Person> personen = _mainViewModel.Personen;
             // TODO? Validierung?
             // Auslesen aus der Form, Person der Liste hinzufügen
-            _mainViewModel.Personen.Add(new Person(Vorname ,Name,
-                new Adresse(Plz, Ort, Strasse)));
+
+            // neue Person erstellen
+            Person neuePerson = new Person(Vorname, Name, new Adresse(Plz, Ort, Strasse));
+            // Person zur Liste hinzufügen
+            personen.Add(neuePerson);
+            fuegeZurDateiHinzu(neuePerson);
+        }
+
+        // Person in Datei schreiben
+        private void fuegeZurDateiHinzu(Person neuePerson)
+        {
+            var fileWriter = new StreamWriter("Personen.csv" ,true); //Append = true;
+            fileWriter.WriteLine(getCsvFormat(neuePerson));
+            fileWriter.Close();
+        }
+
+        private string getCsvFormat(Person person)
+        {
+            string output = "";
+            string sperator = ";";
+
+            string[] data =  { person.Vorname,
+                                person.Nachname,
+                                person.Adresse.Strasse,
+                                person.Adresse.Ort,
+                                person.Adresse.Plz};
+            // String wird zusammengeführt aus Array data
+            foreach(string d in data)
+            {
+                output += d + sperator;
+            }
+
+            return output;
         }
     }
 }

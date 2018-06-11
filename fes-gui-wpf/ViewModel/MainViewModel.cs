@@ -1,6 +1,9 @@
 ﻿using System.Collections.ObjectModel;
 using fes_gui_wpf.Model;
 
+// #TODO
+// [ ] DataTableView auslagern in seperate View
+
 namespace fes_gui_wpf.ViewModel
 {
     public class MainViewModel
