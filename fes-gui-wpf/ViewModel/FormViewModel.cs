@@ -8,7 +8,7 @@ namespace fes_gui_wpf.ViewModel
     {
         private readonly MainViewModel _mainViewModel;
 
-        
+        // Deklaration für die Daten, welche eingetippt werden
         public string Vorname { get; set; }
         public string Name { get; set; }
         public string Alter { get; set; }
@@ -16,14 +16,23 @@ namespace fes_gui_wpf.ViewModel
         public string Ort { get; set; }
         public string Plz { get; set; }
 
+        // Pointer für die Methode Speichern()
         public DelegateCommand SpeichernCommand { get; set; }
 
+        /// <summary>
+        /// Konstruktor der Klasse FormViewModel
+        /// </summary>
+        /// <param name="mainViewModel"></param>
         public FormViewModel(MainViewModel mainViewModel)
         {
             SpeichernCommand = new DelegateCommand(() => Speichern());
             _mainViewModel = mainViewModel;
         }
 
+        /// <summary>
+        /// Fügt der Liste MainViewModel.Personen hinzu
+        /// Speichert diese Werte in Datei
+        /// </summary>
         private void Speichern()
         {
             ObservableCollection<Person> personen = _mainViewModel.Personen;
