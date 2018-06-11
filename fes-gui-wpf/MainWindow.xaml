@@ -17,12 +17,17 @@
     <Window.Resources>
 
     </Window.Resources>
-    <StackPanel>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
 
-        <views:Form Margin="20" DataContext="{Binding FormViewModel}" Visibility="{Binding Visibility}"/>
+        <views:Form Grid.Row="0" Margin="20" DataContext="{Binding FormViewModel}" Visibility="{Binding Visibility}"/>
 
         <!-- ## TODO: In eine Seperate View verschieben-->
-        <DataGrid ColumnWidth="*" ItemsSource="{Binding Personen}" AutoGenerateColumns="False" ScrollViewer.VerticalScrollBarVisibility="Auto">
+        
+        <DataGrid Grid.Row="1" CanUserResizeRows="False" ColumnWidth="*" ItemsSource="{Binding Personen}" AutoGenerateColumns="False" ScrollViewer.VerticalScrollBarVisibility="Auto">
             <!--Recherche Quelle für Custom GridNames: 
                 http://www.wpf-tutorial.com/datagrid-control/custom-columns/-->
             <DataGrid.Columns >
@@ -34,5 +39,5 @@
                 <DataGridTextColumn Header="Ort" Binding="{Binding Adresse.Ort, Mode=OneWay}" />
             </DataGrid.Columns>
         </DataGrid>
-    </StackPanel>
+    </Grid>
 </Window>
