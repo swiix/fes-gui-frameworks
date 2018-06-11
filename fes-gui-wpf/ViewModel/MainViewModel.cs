@@ -15,6 +15,11 @@ namespace fes_gui_wpf.ViewModel
 
             // Listen
             Personen = new ObservableCollection<Person>();
+
+            // Debug Liste
+            Personen.Add(new Person("Carl" ,"Reinecken" ,
+                new Adresse("123" ,"Carlsberg" ,"Heinekesttr.")));
+
         }
 
     }
