@@ -31,8 +31,8 @@ namespace fes_gui_wpf.ViewModel
             // View
             FormViewModel = new FormViewModel(this, CsvController);
 
-            CsvController.leseDatei(Personen);
             // Lese aus Datei -> Lade Personen-Daten, wenn Datei verfügbar
+            CsvController.leseDatei(Personen);
         }
 
     }

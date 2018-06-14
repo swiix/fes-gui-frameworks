@@ -62,7 +62,7 @@ namespace fes_gui_wpf
             // String wird zusammengeführt aus Array data
             foreach(string d in data)
             {
-                output += d + seperator;
+                output += d.Trim() + seperator;
             }
 
             return output;

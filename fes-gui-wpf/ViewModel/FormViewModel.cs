@@ -51,7 +51,7 @@ namespace fes_gui_wpf.ViewModel
 
             ObservableCollection<Person> personen = _mainViewModel.Personen;
             // Auslesen aus der Form, Person der Liste hinzufügen
-            Person neuePerson = new Person(Vorname, Nachname, new Adresse(Plz, Ort, Strasse));
+            Person neuePerson = new Person(Vorname.Trim(), Nachname.Trim(), new Adresse(Plz.Trim(), Ort.Trim(), Strasse.Trim()));
             // Person zur Liste hinzufügen
             personen.Add(neuePerson);
 
