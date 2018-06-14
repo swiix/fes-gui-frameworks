@@ -1,12 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Comment CommentText="TODO TableView">
-    <Position X="8.525" Y="5.858" Height="0.75" Width="1.7" />
+  <Comment CommentText="ViewModels">
+    <Position X="4.567" Y="0.5" Height="0.458" Width="1.317" />
+  </Comment>
+  <Comment CommentText="Models">
+    <Position X="5.258" Y="4.042" Height="0.358" Width="1.7" />
+  </Comment>
+  <Comment CommentText="Utils">
+    <Position X="9.983" Y="3.358" Height="0.291" Width="1.7" />
+  </Comment>
+  <Comment CommentText="Main">
+    <Position X="6.892" Y="1.642" Height="0.292" Width="1.258" />
   </Comment>
   <Class Name="fes_gui_wpf.Model.Person">
-    <Position X="2.75" Y="3.5" Width="1.5" />
+    <Position X="8" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAAAAAgAAAAAEAAAAAAQAAAAAAABCAAAAQgAAAAA=</HashCode>
+      <HashCode>AAACAAAAAAAAAAAEAAAAAAQAAAAAAAAAAAAAQgAAAAA=</HashCode>
       <FileName>Model\Person.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -14,34 +23,43 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="fes_gui_wpf.Model.Adresse">
-    <Position X="6" Y="4.25" Width="1.5" />
+    <Position X="5.25" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAEAAAAAAAAAAEAAAAAAAAACAAAABgAAAAQAAAABA=</HashCode>
+      <HashCode>AAAAEAAAAAAAAAAEAAAAAAAAAAAAAABgAAAAAAAAAAA=</HashCode>
       <FileName>Model\Adresse.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="fes_gui_wpf.ViewModel.FormViewModel">
-    <Position X="9.5" Y="1.75" Width="1.5" />
+    <Position X="3" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACEAABAAAAQABAAAAAABRAAAAgAABgAAAAAAAAAAA=</HashCode>
+      <HashCode>AAACEAABAAAAYABAAAAAAABAAAAAQABgAAAAAgAAAAA=</HashCode>
       <FileName>ViewModel\FormViewModel.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Field Name="_mainViewModel" />
+      <Field Name="_csvController" />
     </ShowAsAssociation>
   </Class>
   <Class Name="fes_gui_wpf.ViewModel.MainViewModel">
-    <Position X="4.25" Y="1.5" Width="1.5" />
+    <Position X="6.75" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAACAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAACAAAAARAAAAAAAABAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ViewModel\MainViewModel.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
+      <Field Name="CsvController" />
       <Property Name="FormViewModel" />
     </ShowAsAssociation>
     <ShowAsCollectionAssociation>
       <Property Name="Personen" />
     </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="fes_gui_wpf.CsvController">
+    <Position X="10.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEIAAAAAAAAABAABIAgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Utils\CsvController.cs</FileName>
+    </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

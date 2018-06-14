@@ -10,6 +10,10 @@ using fes_gui_wpf.Model;
 
 namespace fes_gui_wpf
 {
+    /// <summary>
+    /// CsvController ist für das Lesen und Schreiben von Csv Datei zuständlig.
+    /// Bezogen auf Objekte vom Typ <Person>
+    /// </summary>
     public class CsvController
     {
         private StreamWriter _fileWriter;

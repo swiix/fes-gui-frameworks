@@ -3,6 +3,9 @@ using System.Windows.Input;
 
 namespace fes_gui_wpf.Utils
 {
+    /// <summary>
+    /// DelegateCommand Klasse um Button Aktionen zu vereinfachen
+    /// </summary>
     public class DelegateCommand : ICommand
     {
         private readonly Action _action;
