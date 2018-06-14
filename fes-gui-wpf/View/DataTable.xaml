@@ -1,0 +1,25 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:fes_gui_wpf.View">
+    
+    <ControlTemplate x:Key="DataTableTemplate" TargetType="local:DataTable">
+        <Grid>
+            <DataGrid CanUserDeleteRows="False" CanUserResizeRows="False" ColumnWidth="*" ItemsSource="{Binding Personen}" AutoGenerateColumns="False" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                <!--Recherche Quelle für Custom GridNames: 
+                http://www.wpf-tutorial.com/datagrid-control/custom-columns/-->
+                <DataGrid.Columns>
+                    <DataGridTextColumn  Header="Vorname" Binding="{Binding Vorname, Mode=OneWay}" />
+                    <!--Mode = OneWay, Damit die Daten durch ein doppelklick nicht geändert werden. (Extra funktion von DataGrid)-->
+                    <DataGridTextColumn Header="Nachname" Binding="{Binding Nachname, Mode=OneWay}" />
+                    <DataGridTextColumn Header="Straße" Binding="{Binding Adresse.Strasse, Mode=OneWay}" />
+                    <DataGridTextColumn Header="PLZ" Binding="{Binding Adresse.Plz, Mode=OneWay}" />
+                    <DataGridTextColumn Header="Ort" Binding="{Binding Adresse.Ort, Mode=OneWay}" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </ControlTemplate>
+
+    <Style TargetType="local:DataTable">
+        <Setter Property="Template" Value="{StaticResource DataTableTemplate}"/>
+    </Style>
+</ResourceDictionary>
