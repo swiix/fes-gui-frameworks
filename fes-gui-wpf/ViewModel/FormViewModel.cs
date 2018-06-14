@@ -13,7 +13,7 @@ namespace fes_gui_wpf.ViewModel
 
         // Deklaration für die Daten, welche eingetippt werden
         public string Vorname { get; set; }
-        public string Name { get; set; }
+        public string Nachname { get; set; }
         public string Alter { get; set; }
         public string Strasse { get; set; }
         public string Ort { get; set; }
@@ -43,7 +43,7 @@ namespace fes_gui_wpf.ViewModel
         private void Speichern()
         {
             // Validierung, weil wir finden, dass sonst ein Eintrag keinen Sinn macht und kein Anwendungszweck besitzt.
-            if(String.IsNullOrWhiteSpace(Vorname) || String.IsNullOrWhiteSpace(Name))
+            if(String.IsNullOrWhiteSpace(Vorname) || String.IsNullOrWhiteSpace(Nachname))
             {
                 MessageBox.Show("Vorname und Nachname sind Pflichtfelder!");
                 return;
@@ -51,7 +51,7 @@ namespace fes_gui_wpf.ViewModel
 
             ObservableCollection<Person> personen = _mainViewModel.Personen;
             // Auslesen aus der Form, Person der Liste hinzufügen
-            Person neuePerson = new Person(Vorname, Name, new Adresse(Plz, Ort, Strasse));
+            Person neuePerson = new Person(Vorname, Nachname, new Adresse(Plz, Ort, Strasse));
             // Person zur Liste hinzufügen
             personen.Add(neuePerson);
 
@@ -66,10 +66,10 @@ namespace fes_gui_wpf.ViewModel
         /// </summary>
         private void FormReset()
         {
-            Name = "";
-            OnPropertyChanged("Name");
             Vorname = "";
             OnPropertyChanged("Vorname");
+            Nachname = "";
+            OnPropertyChanged("Nachname");
             Strasse = "";
             OnPropertyChanged("Strasse");
             Ort = "";

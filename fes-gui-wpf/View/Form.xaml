@@ -27,16 +27,16 @@
             </Grid.ColumnDefinitions>
 
             <StackPanel Grid.Column="0" Orientation="Vertical">
-                <TextBlock Text="Name"/>
                 <TextBlock Text="Vorname"/>
+                <TextBlock Text="Nachname"/>
                 <TextBlock Text="Strasse"/>
                 <TextBlock Text="Ort"/>
                 <TextBlock Text="PLZ"/>
             </StackPanel>
 
             <StackPanel Grid.Column="1" Orientation="Vertical">
-                <TextBox Text="{Binding Name}"/>
                 <TextBox Text="{Binding Vorname}"/>
+                <TextBox Text="{Binding Nachname}"/>
                 <TextBox Text="{Binding Strasse}"/>
                 <TextBox Text="{Binding Ort}"/>
                 <TextBox Text="{Binding Plz}"/>
